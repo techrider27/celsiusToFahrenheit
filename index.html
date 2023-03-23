@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celsius to Fahrenheit Converter</title>
+    <link rel="stylesheet" href="/input.css" />
+  </head>
+  <body>
+    <div class="bg-change flex justify-center items-center flex-col h-screen bg-sky-200">
+      <h2 class="text-center text-4xl font-bold mb-5">Celsius to Fahrenheit Converter</h2>
+      <div class="container max-w-2xl mx-auto flex justify-center items-center">
+        <div class="w-full p-3 text-center">
+          <label class="text-2xl font-mono">Celsius</label><br />
+          <input
+            type="number"
+            class="
+              border-[1px] border-black border-solid
+              text-center text-2xl bg-transparent
+              w-1/2
+              mt-4
+              font-semibold
+            "
+            value="0"
+            id="cel"
+          />
+        </div>
+        <div class="w-full p-3 text-center">
+          <label class="text-2xl font-mono">Fahrenheit</label><br />
+          <input
+            type="number"
+            class="
+              border-[1px] border-black border-solid
+              text-center text-2xl bg-transparent
+              w-1/2
+              mt-4
+              font-semibold"
+            value="32"
+            id="fah"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // selecting all input tags
+
+      const inputCel = document.querySelector("#cel");
+      const inputFah = document.querySelector("#fah");
+
+      // event listener for celsius to fahrenheit
+      inputCel.addEventListener("input",cel=()=>{
+        let celsius = inputCel.value;
+        let f = (celsius * 9/5) + 32;
+        inputFah.value = f.toFixed(1);
+      });
+
+      
+      // event listener for fahrenheit to celsius 
+      inputFah.addEventListener("input",fah=()=>{
+        let fahrenheit = inputFah.value;
+        let newCelsius = (fahrenheit - 32)*5/9;
+        inputCel.value = newCelsius.toFixed(4);
+      });
+    </script>
+  </body>
+</html>
